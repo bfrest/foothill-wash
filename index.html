@@ -10,38 +10,85 @@
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        letter-spacing: 0.13em;
+        letter-spacing: 0.11em;
+        color: #333;
+        background-color: #fcfcfc;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
       }
 
       nav {
-        box-shadow: 0 2px 5px rgba(90, 90, 90, 0.45);
-        height: 50px;
-        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        padding: 50px 10px;
+        background-color: #1e3799;
+        transition: all 0.25s;
+        top: 0;
+        color: white;
+        z-index: 10;
+      }
+
+      #navLogo {
+        height: 6em;
+        align-self: center;
+        transition: all 0.25s;
+        padding: 10px;
       }
 
       .navItems {
         align-items: center;
         display: flex;
-        font-size: 1.3em;
         height: 100%;
         justify-content: space-evenly;
         list-style-type: none;
-        width: 60%;
+        transition: all 0.3s;
+        font-size: 2em;
+        width: 70%;
+      }
+
+      .navItems li {
+        border-radius: 5px;
+        padding: 10px;
+        transition: all 0.25s;
+      }
+
+      .navItems li:hover {
+        background-color: #e58e26;
+        background: #fefefe;
+        color: #1e3799;
+        cursor: pointer;
+      }
+
+      .getApp {
+        background-color: royalblue;
+        border-radius: 5px;
+        color: white;
       }
 
       .mainHeader {
         align-items: center;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        height: 80vh;
+        height: 100vh;
         justify-content: center;
+        margin-top: 150px;
       }
 
       .leftHeader {
       }
 
       .leftHeader img {
-        height: 500px;
+        height: 16em;
       }
 
       .rightHeader {
@@ -49,25 +96,64 @@
         display: flex;
         flex-direction: column;
         font-size: 1.4em;
+        margin-top: -150px;
       }
 
       .actionBtns {
+        height: 2em;
       }
 
       .actionBtns img {
         height: 50px;
       }
+
+      .google {
+        font-size: 3em;
+      }
+
+      .washes {
+        display: flex;
+        justify-content: space-evenly;
+        height: 80vh;
+      }
+
+      .priceCard {
+        text-align: center;
+        height: 450px;
+        border: 2px;
+        box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
+        padding: 0 20px 20px;
+        border-radius: 5px;
+        font-size: large;
+      }
+
+      .priceCard ul li {
+        padding: 5px;
+      }
+
+      .price {
+      }
+
+      .naomi {
+        background-color: #1e3799;
+        color: #fcfcfc;
+        margin-top: -50px;
+        box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.5);
+        height: 505px;
+      }
     </style>
   </head>
   <body>
     <!-- Nav & Nav Items -->
-    <nav>
+    <nav id="nav">
+      <img id="navLogo" src="./all-white.svg" alt="logo" />
+
       <div class="navItems">
         <li>Home</li>
         <li>About</li>
         <li>Sign up</li>
         <li>Contact</li>
-        <li>Get App</li>
+        <li class="getApp">Get App</li>
       </div>
     </nav>
 
@@ -83,10 +169,107 @@
         <h1>Foothill Wash</h1>
         <h3>Get unlimited washes with our app!</h3>
         <div class="actionBtns">
-          <img src="./google-play-badge.png" alt="google play store" />
-          <img src="./Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="app store" />
+          <img src="./googlePlay.png" alt="google play store" />
+          <img src="./appStore.png" alt="app store" />
         </div>
       </div>
     </div>
+
+    <div class="washes">
+      <div class="priceCard">
+        <h2>Little Baldy</h2>
+        <p class="price">$10</p>
+        <ul>
+          <li>Under Carriage & Rocker Blast</li>
+          <li>PreSoak</li>
+          <li>Presoak 2</li>
+          <li>High Pressure Wash</li>
+          <li>Spot Free Rinse</li>
+          <li>Super Dry</li>
+        </ul>
+      </div>
+
+      <div class="priceCard naomi">
+        <h2>Naomi Peak</h2>
+        <p class="price bestValue">$14</p>
+        <ul>
+          <li>Under Carriage & Rocker Blast</li>
+          <li>PreSoak</li>
+          <li>Bug Pass</li>
+          <li>Presoak 2</li>
+          <li>High Pressure Wash</li>
+          <li>Triple Foam Polish</li>
+          <li>High Pressure Rinse</li>
+          <li>Lava Glow Wax</li>
+          <li>Rinse</li>
+          <li>Super Sealant</li>
+          <li>Spot Free Rinse</li>
+          <li>Super Dry</li>
+        </ul>
+      </div>
+
+      <div class="priceCard">
+        <h2>Logan Peak</h2>
+        <p class="price">$12</p>
+        <ul>
+          <li>Under Carriage & Rocker Blast</li>
+          <li>PreSoak</li>
+          <li>Bug Pass</li>
+          <li>Presoak 2</li>
+          <li>High Pressure Wash</li>
+          <li>Rinse</li>
+          <li>Triple Foam Polish</li>
+          <li>Clear Coat Protectant</li>
+          <li>Spot Free Rinse</li>
+          <li>Super Dry</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="about">
+      <p>We have been washing cache valley's cars for over 30 years</p>
+      <p
+        >Whether you drive a Cybertruck or your grandmas old beater, we will help make your car feel
+        loved.</p
+      >
+    </div>
   </body>
+
+  <script>
+    const nav = document.querySelector("nav");
+    const logo = document.querySelector("#navLogo");
+    const navItems = document.querySelector(".navItems");
+
+    // Checks where the scroll position is and changes styles
+    // makes the nav go big and small based on scroll
+    const scrollFunction = () => {
+      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        // After scroll (things are smaller)
+        nav.style.padding = "30px 10px";
+        nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
+
+        // Nav list item styles
+        navItems.style.fontSize = "1.7em";
+
+        // Logo styles
+        navLogo.style.height = "3em";
+      } else {
+        // Before scroll (things are UGE)
+        nav.style.padding = "50px 10px";
+        nav.style.boxShadow = "none";
+
+        // Nav list item styles
+        navItems.style.fontSize = "2em";
+
+        // Logo styles
+        navLogo.style.height = "6em";
+      }
+    };
+
+    // calls the function to check position and change styles on nav
+    window.onscroll = () => {
+      scrollFunction();
+    };
+  </script>
 </html>
