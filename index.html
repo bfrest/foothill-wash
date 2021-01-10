@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foothill Wash</title>
     <link rel="stylesheet" href="./normalize.css" type="text/css" />
+    <link rel="stylesheet" href="./screenBreaks.css" type="text/css" />
 
     <style>
+      /*******************/
+      /* Desktop Styles */
+      /*****************/
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         letter-spacing: 0.11em;
         color: #333;
-        background-color: #fcfcfc;
+        margin-top: 200px;
       }
 
       li {
@@ -81,22 +85,25 @@
         grid-template-columns: 1fr 1fr;
         height: 100vh;
         justify-content: center;
-        margin-top: 150px;
+        padding-bottom: 100px;
       }
 
       .leftHeader {
+        animation: slideInLeft 0.5s 1;
       }
 
       .leftHeader img {
-        height: 16em;
+        height: 450px;
       }
 
       .rightHeader {
         align-items: center;
         display: flex;
         flex-direction: column;
-        font-size: 1.4em;
-        margin-top: -150px;
+        font-size: 2em;
+        margin-top: -120px;
+        color: #1e3799;
+        animation: slideInLeft 0.5s 1;
       }
 
       .actionBtns {
@@ -119,12 +126,12 @@
 
       .priceCard {
         text-align: center;
-        height: 450px;
+        height: 480px;
         border: 2px;
         box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
-        padding: 0 20px 20px;
+        padding: 0 40px 50px;
         border-radius: 5px;
-        font-size: large;
+        font-size: 1.4em;
       }
 
       .priceCard ul li {
@@ -139,9 +146,66 @@
         color: #fcfcfc;
         margin-top: -50px;
         box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.5);
-        height: 505px;
+        height: 535px;
+      }
+
+      .bestValue {
+      }
+
+      #map {
+        height: 75vh;
+        width: 100%;
+      }
+
+      .footer {
+        width: 100vw;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 50px 0;
+        margin-top: -15px;
+        background-color: #1e3799;
+        color: #fefefe;
+        align-items: center;
+      }
+
+      .bigHeader {
+        width: 30vw;
+      }
+
+      /******************/
+      /*   Animations  */
+      /****************/
+
+      @keyframes slideInLeft {
+        from {
+          margin-left: -100vw;
+          opacity: 0.2;
+        }
+
+        to {
+          margin-left: 0;
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInright {
+        from {
+          margin-right: 100vw;
+          position: absolute;
+          background-color: #1e3799;
+        }
+
+        to {
+          margin-right: 0;
+          position: relative;
+        }
       }
     </style>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDZRY7Q5BWQZHFFbiY0Bwt8yGcnRTwFWE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
   </head>
   <body>
     <!-- Nav & Nav Items -->
@@ -161,12 +225,12 @@
     <div class="mainHeader">
       <!-- Car wash svg -->
       <div class="leftHeader">
-        <img alt="wash" src="./People-in-public-places-61.jpg" />
+        <img alt="wash" src="./foothill.png" />
       </div>
 
       <!-- Intro and download buttons -->
       <div class="rightHeader">
-        <h1>Foothill Wash</h1>
+        <img class="bigHeader" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
         <div class="actionBtns">
           <img src="./googlePlay.png" alt="google play store" />
@@ -228,11 +292,27 @@
 
     <!-- About -->
     <div class="about">
-      <p>We have been washing cache valley's cars for over 30 years</p>
-      <p
-        >Whether you drive a Cybertruck or your grandmas old beater, we will help make your car feel
-        loved.</p
-      >
+      <!-- <p
+        >We have been helping cache valley keep their cars clean for over 30 years, and now we have
+        made it even better with our new app allowing you to
+      </p> -->
+    </div>
+
+    <div id="map"></div>
+
+    <div class="footer">
+      <div>
+        <h3>Contact</h3>
+        <p>foothillwash@gmail.com</p>
+      </div>
+
+      <div>
+        <h3>Address</h3>
+        <p>122 west 900 south utah</p>
+      </div>
+
+      <img height="100%" src="./googlePlay.png" alt="google play store" />
+      <img height="100%" src="./appStore.png" alt="app store" />
     </div>
   </body>
 
@@ -271,5 +351,21 @@
     window.onscroll = () => {
       scrollFunction();
     };
+
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      const uluru = { lat: 41.75763061220598, lng: -111.80356313138749 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 20,
+        center: uluru,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+      });
+    }
   </script>
 </html>
