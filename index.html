@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foothill Wash</title>
     <link rel="stylesheet" href="./normalize.css" type="text/css" />
-    <link rel="stylesheet" href="./screenBreaks.css" type="text/css" />
 
     <style>
       /*******************/
@@ -168,7 +167,7 @@
         align-items: center;
       }
 
-      .bigHeader {
+      .headerLogo {
         width: 30vw;
       }
 
@@ -198,6 +197,124 @@
         to {
           margin-right: 0;
           position: relative;
+        }
+      }
+
+      /*******************/
+      /* Mobile Styles  */
+      /*****************/
+
+      @media (max-width: 600px) {
+        body {
+          letter-spacing: 0.08em;
+        }
+
+        nav {
+          padding: 10px;
+        }
+
+        #navLogo {
+          height: 3em;
+        }
+
+        .navItems {
+          font-size: 0.9em;
+        }
+
+        .navItems li {
+          padding: 15px;
+        }
+
+        .mainHeader {
+          align-items: center;
+          display: flex;
+          flex-direction: column-reverse;
+          justify-content: space-evenly;
+          padding-bottom: 0;
+          height: 100%;
+        }
+
+        .leftHeader {
+          animation: slideInLeft 0.5s 1;
+        }
+
+        .leftHeader img {
+          height: 150px;
+        }
+
+        .rightHeader {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          font-size: 2em;
+          margin-top: 0;
+          margin: 0;
+        }
+
+        .headerLogo {
+          width: 5em;
+        }
+
+        .actionBtns {
+          height: 1em;
+        }
+
+        .actionBtns img {
+          height: 50px;
+        }
+
+        .google {
+          font-size: 3em;
+        }
+
+        .washes {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          height: 100%;
+        }
+
+        .priceCard {
+          text-align: center;
+          height: 480px;
+          border: 2px;
+          box-shadow: none;
+          padding: 0 20px 30px;
+          font-size: 1em;
+          height: 100%;
+        }
+
+        .priceCard ul li {
+          padding: 5px;
+        }
+
+        .price {
+        }
+
+        .naomi {
+          margin-top: 0;
+          box-shadow: none;
+          height: 100%;
+        }
+
+        .bestValue {
+        }
+
+        #map {
+          height: 75vh;
+          width: 100%;
+        }
+
+        .footer {
+          width: 100vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          padding: 30px 0;
+          margin-top: -15px;
+          background-color: #1e3799;
+          color: #fefefe;
+          align-items: center;
         }
       }
     </style>
@@ -230,7 +347,7 @@
 
       <!-- Intro and download buttons -->
       <div class="rightHeader">
-        <img class="bigHeader" src="./Component 3blue-logo.svg" alt="foothill wash" />
+        <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
         <div class="actionBtns">
           <img src="./googlePlay.png" alt="google play store" />
@@ -348,9 +465,9 @@
     };
 
     // calls the function to check position and change styles on nav
-    window.onscroll = () => {
-      scrollFunction();
-    };
+    // window.onscroll = () => {
+    //   scrollFunction();
+    // };
 
     // Initialize and add the map
     function initMap() {
