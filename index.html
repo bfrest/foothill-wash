@@ -214,15 +214,16 @@
         }
 
         #navLogo {
-          height: 3em;
+          height: 2em;
         }
 
         .navItems {
           font-size: 0.9em;
+          width: 60%;
         }
 
         .navItems li {
-          padding: 15px;
+          padding: 10px;
         }
 
         .mainHeader {
@@ -246,21 +247,17 @@
           align-items: center;
           display: flex;
           flex-direction: column;
-          font-size: 2em;
+          font-size: 1em;
           margin-top: 0;
           margin: 0;
         }
 
         .headerLogo {
-          width: 5em;
-        }
-
-        .actionBtns {
-          height: 1em;
+          width: 9em;
         }
 
         .actionBtns img {
-          height: 50px;
+          height: 30px;
         }
 
         .google {
@@ -276,12 +273,32 @@
 
         .priceCard {
           text-align: center;
-          height: 480px;
-          border: 2px;
-          box-shadow: none;
-          padding: 0 20px 30px;
-          font-size: 1em;
           height: 100%;
+          width: 60%;
+          align-self: center;
+          border: 2px;
+          background-color: #fefefe;
+          font-size: 1em;
+        }
+
+        .priceCard p {
+          margin-top: -15px;
+        }
+
+        .activeCard {
+          /*
+          Create the stacking effect
+          Somehow loop over each card to set
+          position and change css class accordingly
+           */
+          margin-top: -100%;
+        }
+
+        .nextActive {
+          margin-top: -65%;
+        }
+
+        .bestValue {
         }
 
         .priceCard ul li {
@@ -292,12 +309,9 @@
         }
 
         .naomi {
-          margin-top: 0;
-          box-shadow: none;
-          height: 100%;
-        }
-
-        .bestValue {
+          color: #333333;
+          margin: -100% 0 0 0;
+          background-color: #fefefe;
         }
 
         #map {
@@ -330,10 +344,6 @@
       <img id="navLogo" src="./all-white.svg" alt="logo" />
 
       <div class="navItems">
-        <li>Home</li>
-        <li>About</li>
-        <li>Sign up</li>
-        <li>Contact</li>
         <li class="getApp">Get App</li>
       </div>
     </nav>
@@ -356,7 +366,7 @@
       </div>
     </div>
 
-    <div class="washes">
+    <div class="washes inTheHole">
       <div class="priceCard">
         <h2>Little Baldy</h2>
         <p class="price">$10</p>
@@ -370,26 +380,7 @@
         </ul>
       </div>
 
-      <div class="priceCard naomi">
-        <h2>Naomi Peak</h2>
-        <p class="price bestValue">$14</p>
-        <ul>
-          <li>Under Carriage & Rocker Blast</li>
-          <li>PreSoak</li>
-          <li>Bug Pass</li>
-          <li>Presoak 2</li>
-          <li>High Pressure Wash</li>
-          <li>Triple Foam Polish</li>
-          <li>High Pressure Rinse</li>
-          <li>Lava Glow Wax</li>
-          <li>Rinse</li>
-          <li>Super Sealant</li>
-          <li>Spot Free Rinse</li>
-          <li>Super Dry</li>
-        </ul>
-      </div>
-
-      <div class="priceCard">
+      <div class="priceCard nextActive">
         <h2>Logan Peak</h2>
         <p class="price">$12</p>
         <ul>
@@ -405,6 +396,25 @@
           <li>Super Dry</li>
         </ul>
       </div>
+    </div>
+
+    <div class="priceCard naomi activeCard">
+      <h2>Naomi Peak</h2>
+      <p class="price bestValue">$14</p>
+      <ul>
+        <li>Under Carriage & Rocker Blast</li>
+        <li>PreSoak</li>
+        <li>Bug Pass</li>
+        <li>Presoak 2</li>
+        <li>High Pressure Wash</li>
+        <li>Triple Foam Polish</li>
+        <li>High Pressure Rinse</li>
+        <li>Lava Glow Wax</li>
+        <li>Rinse</li>
+        <li>Super Sealant</li>
+        <li>Spot Free Rinse</li>
+        <li>Super Dry</li>
+      </ul>
     </div>
 
     <!-- About -->
