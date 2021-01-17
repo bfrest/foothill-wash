@@ -83,6 +83,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         height: 100vh;
+        width: 50%;
         justify-content: center;
         padding-bottom: 100px;
       }
@@ -120,7 +121,7 @@
       .washes {
         display: flex;
         justify-content: space-evenly;
-        height: 80vh;
+        height: 100vh;
       }
 
       .priceCard {
@@ -198,6 +199,13 @@
           margin-right: 0;
           position: relative;
         }
+      }
+
+      #tripleFoam {
+        height: 100%;
+        width: 100vw;
+        position: fixed;
+        z-index: 9;
       }
 
       /*******************/
@@ -348,25 +356,23 @@
       </div>
     </nav>
 
-    <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
-      <!-- Car wash svg -->
-      <div class="leftHeader">
-        <img alt="wash" src="./foothill.png" />
-      </div>
-
-      <!-- Intro and download buttons -->
-      <div class="rightHeader">
-        <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
-        <h3>Get unlimited washes with our app!</h3>
-        <div class="actionBtns">
-          <img src="./googlePlay.png" alt="google play store" />
-          <img src="./appStore.png" alt="app store" />
-        </div>
-      </div>
+      <video autoplay muted loop>
+        <source src="https://player.vimeo.com/video/501441035" type="video/mp4" />
+      </video>
     </div>
 
-    <div class="washes inTheHole">
+    <!-- Video header -->
+    <!-- <iframe
+      src="https://player.vimeo.com/video/501441035"
+      width="640"
+      height="360"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+    ></iframe> -->
+
+    <div class="washes">
       <div class="priceCard">
         <h2>Little Baldy</h2>
         <p class="price">$10</p>
@@ -380,7 +386,26 @@
         </ul>
       </div>
 
-      <div class="priceCard nextActive">
+      <div class="priceCard naomi activeCard">
+        <h2>Naomi Peak</h2>
+        <p class="price bestValue">$14</p>
+        <ul>
+          <li>Under Carriage & Rocker Blast</li>
+          <li>PreSoak</li>
+          <li>Bug Pass</li>
+          <li>Presoak 2</li>
+          <li>High Pressure Wash</li>
+          <li>Triple Foam Polish</li>
+          <li>High Pressure Rinse</li>
+          <li>Lava Glow Wax</li>
+          <li>Rinse</li>
+          <li>Super Sealant</li>
+          <li>Spot Free Rinse</li>
+          <li>Super Dry</li>
+        </ul>
+      </div>
+
+      <div class="priceCard">
         <h2>Logan Peak</h2>
         <p class="price">$12</p>
         <ul>
@@ -398,32 +423,13 @@
       </div>
     </div>
 
-    <div class="priceCard naomi activeCard">
-      <h2>Naomi Peak</h2>
-      <p class="price bestValue">$14</p>
-      <ul>
-        <li>Under Carriage & Rocker Blast</li>
-        <li>PreSoak</li>
-        <li>Bug Pass</li>
-        <li>Presoak 2</li>
-        <li>High Pressure Wash</li>
-        <li>Triple Foam Polish</li>
-        <li>High Pressure Rinse</li>
-        <li>Lava Glow Wax</li>
-        <li>Rinse</li>
-        <li>Super Sealant</li>
-        <li>Spot Free Rinse</li>
-        <li>Super Dry</li>
-      </ul>
-    </div>
-
-    <!-- About -->
+    <!-- About 
     <div class="about">
-      <!-- <p
+      <p
         >We have been helping cache valley keep their cars clean for over 30 years, and now we have
         made it even better with our new app allowing you to
-      </p> -->
-    </div>
+      </p> 
+    </div>-->
 
     <div id="map"></div>
 
@@ -451,33 +457,68 @@
     // Checks where the scroll position is and changes styles
     // makes the nav go big and small based on scroll
     const scrollFunction = () => {
-      if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-        // After scroll (things are smaller)
-        nav.style.padding = "30px 10px";
-        nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
+      // Checks if the browser is mobile or not
+      // This is for the styles that are mobile specific
+      // i.e the nav growing and shrinking
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      ) {
+        // true for mobile device
+        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+          // After scroll (things are smaller)
+          nav.style.padding = "20px 5px";
+          nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
 
-        // Nav list item styles
-        navItems.style.fontSize = "1.7em";
+          // Nav list item styles
+          navItems.style.fontSize = "1em";
 
-        // Logo styles
-        navLogo.style.height = "3em";
+          // Logo styles
+          navLogo.style.height = "2em";
+        } else {
+          // Before scroll (things are UGE)
+          nav.style.padding = "30px 10px";
+          nav.style.boxShadow = "none";
+
+          // Nav list item styles
+          navItems.style.fontSize = "1.2em";
+
+          // Logo styles
+          navLogo.style.height = "3em";
+        }
+        console.log("mobile device");
       } else {
-        // Before scroll (things are UGE)
-        nav.style.padding = "50px 10px";
-        nav.style.boxShadow = "none";
+        // false for not mobile device
+        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+          // After scroll (things are smaller)
+          nav.style.padding = "30px 10px";
+          nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
 
-        // Nav list item styles
-        navItems.style.fontSize = "2em";
+          // Nav list item styles
+          navItems.style.fontSize = "1.7em";
 
-        // Logo styles
-        navLogo.style.height = "6em";
+          // Logo styles
+          navLogo.style.height = "3em";
+        } else {
+          // Before scroll (things are UGE)
+          nav.style.padding = "50px 10px";
+          nav.style.boxShadow = "none";
+
+          // Nav list item styles
+          navItems.style.fontSize = "2em";
+
+          // Logo styles
+          navLogo.style.height = "6em";
+        }
+        console.log("not mobile device");
       }
     };
 
     // calls the function to check position and change styles on nav
-    // window.onscroll = () => {
-    //   scrollFunction();
-    // };
+    window.onscroll = () => {
+      // Needs to check if it mobile and run the mobile styles
+      // TODO: scrollFunctionMobile();
+      scrollFunction();
+    };
 
     // Initialize and add the map
     function initMap() {
