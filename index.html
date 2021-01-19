@@ -13,9 +13,9 @@
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        letter-spacing: 0.11em;
         color: #333;
         margin-top: 200px;
+        font-size: 10px;
       }
 
       li {
@@ -33,19 +33,17 @@
         align-items: center;
         width: 100%;
         position: fixed;
-        padding: 50px 10px;
         background-color: #1e3799;
         transition: all 0.25s;
         top: 0;
         color: white;
         z-index: 10;
+        padding: 30px 10px;
       }
 
       #navLogo {
-        height: 6em;
-        align-self: center;
+        height: 3em;
         transition: all 0.25s;
-        padding: 10px;
       }
 
       .navItems {
@@ -55,11 +53,11 @@
         justify-content: space-evenly;
         list-style-type: none;
         transition: all 0.3s;
-        font-size: 2em;
         width: 70%;
       }
 
       .navItems li {
+        font-size: 0.9rem;
         border-radius: 5px;
         padding: 10px;
         transition: all 0.25s;
@@ -81,79 +79,54 @@
       .mainHeader {
         align-items: center;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        height: 100vh;
-        width: 50%;
-        justify-content: center;
-        padding-bottom: 100px;
       }
 
-      .leftHeader {
-        animation: slideInLeft 0.5s 1;
-      }
-
-      .leftHeader img {
-        height: 450px;
-      }
-
-      .rightHeader {
+      .mainHeader div {
         align-items: center;
         display: flex;
         flex-direction: column;
-        font-size: 2em;
-        margin-top: -120px;
         color: #1e3799;
-        animation: slideInLeft 0.5s 1;
+      }
+
+      .headerLogo {
+        height: 5rem;
       }
 
       .actionBtns {
-        height: 2em;
+        width: 100%;
+        border: 2px solid red;
+      }
+
+      .carWashImg {
+        height: 10rem;
       }
 
       .actionBtns img {
-        height: 50px;
-      }
-
-      .google {
-        font-size: 3em;
+        height: 2rem;
       }
 
       .washes {
         display: flex;
-        justify-content: space-evenly;
-        height: 100vh;
+        flex-direction: column;
       }
 
       .priceCard {
         text-align: center;
-        height: 480px;
         border: 2px;
-        box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
-        padding: 0 40px 50px;
         border-radius: 5px;
-        font-size: 1.4em;
       }
 
       .priceCard ul li {
         padding: 5px;
       }
 
-      .price {
-      }
-
       .naomi {
         background-color: #1e3799;
         color: #fcfcfc;
-        margin-top: -50px;
-        box-shadow: 0px 2px 20px 3px rgba(0, 0, 0, 0.5);
-        height: 535px;
-      }
-
-      .bestValue {
       }
 
       #map {
-        height: 75vh;
+        height: 45vh;
         width: 100%;
       }
 
@@ -161,183 +134,9 @@
         width: 100vw;
         display: flex;
         justify-content: space-evenly;
-        padding: 50px 0;
-        margin-top: -15px;
         background-color: #1e3799;
         color: #fefefe;
         align-items: center;
-      }
-
-      .headerLogo {
-        width: 30vw;
-      }
-
-      /******************/
-      /*   Animations  */
-      /****************/
-
-      @keyframes slideInLeft {
-        from {
-          margin-left: -100vw;
-          opacity: 0.2;
-        }
-
-        to {
-          margin-left: 0;
-          opacity: 1;
-        }
-      }
-
-      @keyframes slideInright {
-        from {
-          margin-right: 100vw;
-          position: absolute;
-          background-color: #1e3799;
-        }
-
-        to {
-          margin-right: 0;
-          position: relative;
-        }
-      }
-
-      #tripleFoam {
-        height: 100%;
-        width: 100vw;
-        position: fixed;
-        z-index: 9;
-      }
-
-      /*******************/
-      /* Mobile Styles  */
-      /*****************/
-
-      @media (max-width: 800px) {
-        body {
-          letter-spacing: 0.08em;
-        }
-
-        nav {
-          padding: 10px;
-        }
-
-        #navLogo {
-          height: 2em;
-        }
-
-        .navItems {
-          font-size: 0.9em;
-          width: 60%;
-        }
-
-        .navItems li {
-          padding: 10px;
-        }
-
-        .mainHeader {
-          align-items: center;
-          display: flex;
-          flex-direction: column-reverse;
-          justify-content: space-evenly;
-          padding-bottom: 0;
-          height: 100%;
-        }
-
-        .leftHeader {
-          animation: slideInLeft 0.5s 1;
-        }
-
-        .leftHeader img {
-          height: 150px;
-        }
-
-        .rightHeader {
-          align-items: center;
-          display: flex;
-          flex-direction: column;
-          font-size: 1em;
-          margin-top: 0;
-          margin: 0;
-        }
-
-        .headerLogo {
-          width: 9em;
-        }
-
-        .actionBtns img {
-          height: 30px;
-        }
-
-        .google {
-          font-size: 3em;
-        }
-
-        .washes {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          height: 100%;
-        }
-
-        .priceCard {
-          text-align: center;
-          height: 100%;
-          width: 60%;
-          align-self: center;
-          border: 2px;
-          background-color: #fefefe;
-          font-size: 1em;
-        }
-
-        .priceCard p {
-          margin-top: -15px;
-        }
-
-        .activeCard {
-          /*
-          Create the stacking effect
-          Somehow loop over each card to set
-          position and change css class accordingly
-           */
-          margin-top: -100%;
-        }
-
-        .nextActive {
-          margin-top: -65%;
-        }
-
-        .bestValue {
-        }
-
-        .priceCard ul li {
-          padding: 5px;
-        }
-
-        .price {
-        }
-
-        .naomi {
-          color: #333333;
-          margin: -100% 0 0 0;
-          background-color: #fefefe;
-        }
-
-        #map {
-          height: 75vh;
-          width: 100%;
-        }
-
-        .footer {
-          width: 100vw;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          padding: 30px 0;
-          margin-top: -15px;
-          background-color: #1e3799;
-          color: #fefefe;
-          align-items: center;
-        }
       }
     </style>
 
@@ -352,30 +151,34 @@
       <img id="navLogo" src="./all-white.svg" alt="logo" />
 
       <div class="navItems">
+        <li>Home</li>
+        <li>Contact</li>
         <li class="getApp">Get App</li>
       </div>
     </nav>
 
+    <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
-      <video autoplay muted loop>
-        <source src="https://player.vimeo.com/video/501441035" type="video/mp4" />
-      </video>
-    </div>
+      <!-- Car wash svg -->
+      <div class="leftHeader">
+        <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
+        <h3>Get unlimited washes with our app!</h3>
+        <div class="actionBtns">
+          <img src="./googlePlay.png" alt="google play store" />
+          <img src="./appStore.png" alt="apple app store" />
+        </div>
+      </div>
 
-    <!-- Video header -->
-    <!-- <iframe
-      src="https://player.vimeo.com/video/501441035"
-      width="640"
-      height="360"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen
-    ></iframe> -->
+      <!-- Intro and download buttons -->
+      <div class="rightHeader">
+        <img class="carWashImg" alt="wash" src="./foothill.png" />
+      </div>
+    </div>
 
     <div class="washes">
       <div class="priceCard">
         <h2>Little Baldy</h2>
-        <p class="price">$10</p>
+        <!-- <p class="price">$10</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -383,12 +186,12 @@
           <li>High Pressure Wash</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul>
+        </ul> -->
       </div>
 
       <div class="priceCard naomi activeCard">
         <h2>Naomi Peak</h2>
-        <p class="price bestValue">$14</p>
+        <!-- <p class="price bestValue">$14</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -402,12 +205,12 @@
           <li>Super Sealant</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul>
+        </ul> -->
       </div>
 
       <div class="priceCard">
         <h2>Logan Peak</h2>
-        <p class="price">$12</p>
+        <!-- <p class="price">$12</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -419,7 +222,7 @@
           <li>Clear Coat Protectant</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul>
+        </ul> -->
       </div>
     </div>
 
@@ -463,7 +266,16 @@
       if (
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       ) {
-        // true for mobile device
+        //
+        //
+        //
+
+        // For mobile device
+
+        //
+        //
+        //
+        //
         if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
           // After scroll (things are smaller)
           nav.style.padding = "20px 5px";
@@ -487,7 +299,17 @@
         }
         console.log("mobile device");
       } else {
-        // false for not mobile device
+        //
+        //
+        //
+
+        // For non mobile device
+
+        //
+        //
+        //
+        //
+
         if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
           // After scroll (things are smaller)
           nav.style.padding = "30px 10px";
