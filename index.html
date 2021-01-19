@@ -14,8 +14,10 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         color: #333;
-        margin-top: 200px;
         font-size: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 8rem;
       }
 
       li {
@@ -34,7 +36,7 @@
         width: 100%;
         position: fixed;
         background-color: #1e3799;
-        transition: all 0.25s;
+        transition: all 0.3s;
         top: 0;
         color: white;
         z-index: 10;
@@ -79,6 +81,7 @@
       .mainHeader {
         align-items: center;
         display: grid;
+        padding-bottom: 10rem;
       }
 
       .mainHeader div {
@@ -88,21 +91,25 @@
         color: #1e3799;
       }
 
-      .headerLogo {
-        height: 5rem;
+      .leftHeader {
       }
 
-      .actionBtns {
-        width: 100%;
-        border: 2px solid red;
+      .headerLogo {
+        height: 5rem;
       }
 
       .carWashImg {
         height: 10rem;
       }
 
-      .actionBtns img {
+      .storeBtns {
+        width: 100%;
+        display: flex;
+      }
+
+      .storeBtns img {
         height: 2rem;
+        display: flex;
       }
 
       .washes {
@@ -113,7 +120,13 @@
       .priceCard {
         text-align: center;
         border: 2px;
-        border-radius: 5px;
+        padding: 15px 0;
+        border: 2px solid rgba(1, 1, 1, 0.9);
+        margin: 3px 0;
+      }
+
+      .detailArrow {
+        height: 1rem;
       }
 
       .priceCard ul li {
@@ -163,10 +176,11 @@
       <div class="leftHeader">
         <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
-        <div class="actionBtns">
-          <img src="./googlePlay.png" alt="google play store" />
-          <img src="./appStore.png" alt="apple app store" />
-        </div>
+      </div>
+
+      <div class="storeBtns">
+        <img src="./googlePlay.png" alt="google play store" />
+        <img src="./appStore.png" alt="apple app store" />
       </div>
 
       <!-- Intro and download buttons -->
@@ -178,7 +192,12 @@
     <div class="washes">
       <div class="priceCard">
         <h2>Little Baldy</h2>
-        <!-- <p class="price">$10</p>
+        <p>see deatails </p>
+        <img
+          class="detailArrow"
+          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
+        />
+        <p class="price">$10</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -186,12 +205,12 @@
           <li>High Pressure Wash</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul> -->
+        </ul>
       </div>
 
       <div class="priceCard naomi activeCard">
         <h2>Naomi Peak</h2>
-        <!-- <p class="price bestValue">$14</p>
+        <p class="price bestValue">$14</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -205,12 +224,12 @@
           <li>Super Sealant</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul> -->
+        </ul>
       </div>
 
       <div class="priceCard">
         <h2>Logan Peak</h2>
-        <!-- <p class="price">$12</p>
+        <p class="price">$12</p>
         <ul>
           <li>Under Carriage & Rocker Blast</li>
           <li>PreSoak</li>
@@ -222,7 +241,7 @@
           <li>Clear Coat Protectant</li>
           <li>Spot Free Rinse</li>
           <li>Super Dry</li>
-        </ul> -->
+        </ul>
       </div>
     </div>
 
@@ -276,7 +295,7 @@
         //
         //
         //
-        if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
           // After scroll (things are smaller)
           nav.style.padding = "20px 5px";
           nav.style.boxShadow = "0 5px 5px rgba(0, 0, 0, 0.5";
