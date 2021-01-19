@@ -20,6 +20,10 @@
         margin-top: 8rem;
       }
 
+      div {
+        font-size: 1rem;
+      }
+
       li {
         list-style-type: none;
       }
@@ -92,11 +96,11 @@
       }
 
       .headerLogo {
-        height: 5rem;
+        height: 7rem;
       }
 
       .carWashImg {
-        height: 10rem;
+        height: 11rem;
       }
 
       .storeBtns {
@@ -116,6 +120,11 @@
       .washes {
         display: flex;
         flex-direction: column;
+      }
+
+      .washes h1 {
+        align-self: center;
+        color: #1e3799;
       }
 
       .priceCard {
@@ -170,14 +179,22 @@
         width: 5rem;
       }
 
-      .hidden {
-        /* 
-      
-      needs to be collapsed, but when clicked it should 
-      expand from the top down and *grow
-      
-       */
-        display: none;
+      .detailArrow {
+        transition: all 0.2s ease-out;
+      }
+
+      .infoSection {
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        font-size: 1rem;
+        /* note that we're transitioning max-height, not height! */
+        height: auto;
+        max-height: 0px;
+        /* // still have to hard-code a value! */
+      }
+
+      .show {
+        max-height: 500px;
       }
     </style>
 
@@ -213,15 +230,13 @@
     </div>
 
     <div class="washes">
+      <h1>Our Washes</h1>
       <div class="priceCard">
         <h2>Little Baldy</h2>
         <!-- Have this hidden when expanded -->
         <p>see details</p>
-        <img
-          class="detailArrow down baldyArrow"
-          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
-        />
-        <div class="hidden">
+        <img class="detailArrow down baldyArrow" src="./blue-arrow.svg" />
+        <div class="baldyInfo infoSection hidden">
           <p class="price">$10</p>
           <ul>
             <li>Under Carriage & Rocker Blast</li>
@@ -237,11 +252,8 @@
       <div class="priceCard naomi bestValue">
         <h2>Naomi Peak</h2>
         <p>see details</p>
-        <img
-          class="detailArrow down naomiArrow"
-          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
-        />
-        <div class="hidden">
+        <img class="detailArrow down naomiArrow" src="./arrow.svg" />
+        <div class="naomiInfo infoSection hidden">
           <p class="price bestValue">$14</p>
           <ul>
             <li>Under Carriage & Rocker Blast</li>
@@ -263,11 +275,8 @@
       <div class="priceCard">
         <h2>Logan Peak</h2>
         <p>see details</p>
-        <img
-          class="detailArrow down loganArrow"
-          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
-        />
-        <div class="hidden">
+        <img class="detailArrow down loganArrow" src="./blue-arrow.svg" />
+        <div class="loganInfo infoSection hidden">
           <p class="price">$12</p>
           <ul>
             <li>Under Carriage & Rocker Blast</li>
@@ -321,6 +330,11 @@
     const loganArrow = document.querySelector(".loganArrow");
     const baldyArrow = document.querySelector(".baldyArrow");
 
+    // Info section about the washes that hides and shows
+    const naomiInfo = document.querySelector(".naomiInfo");
+    const loganInfo = document.querySelector(".loganInfo");
+    const baldyInfo = document.querySelector(".baldyInfo");
+
     // GET THIS WORKING
     // const flipArrow = (name) => {
     //   name.classList.contains("down")
@@ -328,22 +342,34 @@
     //     : name.classList.replace("up", "down");
     // };
 
-    naomiArrow.addEventListener("click", (e) => {
-      naomiArrow.classList.contains("down")
-        ? naomiArrow.classList.replace("down", "up")
-        : naomiArrow.classList.replace("up", "down");
+    naomiArrow.addEventListener("click", () => {
+      if (naomiArrow.classList.contains("down")) {
+        naomiArrow.classList.replace("down", "up");
+        naomiInfo.classList.replace("hidden", "show");
+      } else {
+        naomiArrow.classList.replace("up", "down");
+        naomiInfo.classList.replace("show", "hidden");
+      }
     });
 
     loganArrow.addEventListener("click", () => {
-      loganArrow.classList.contains("down")
-        ? loganArrow.classList.replace("down", "up")
-        : loganArrow.classList.replace("up", "down");
+      if (loganArrow.classList.contains("down")) {
+        loganArrow.classList.replace("down", "up");
+        loganInfo.classList.replace("hidden", "show");
+      } else {
+        loganArrow.classList.replace("up", "down");
+        loganInfo.classList.replace("show", "hidden");
+      }
     });
 
     baldyArrow.addEventListener("click", () => {
-      baldyArrow.classList.contains("down")
-        ? baldyArrow.classList.replace("down", "up")
-        : baldyArrow.classList.replace("up", "down");
+      if (baldyArrow.classList.contains("down")) {
+        baldyArrow.classList.replace("down", "up");
+        baldyInfo.classList.replace("hidden", "show");
+      } else {
+        baldyArrow.classList.replace("up", "down");
+        baldyInfo.classList.replace("show", "hidden");
+      }
     });
 
     // Checks where the scroll position is and changes styles
