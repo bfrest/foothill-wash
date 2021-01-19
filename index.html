@@ -145,10 +145,21 @@
 
       .detailArrow {
         height: 1rem;
+        transition: all 0.25s ease-in;
       }
 
       .up {
         transform: rotate(180deg);
+      }
+
+      .infoSection {
+        overflow: hidden;
+        transition: max-height 0.35s ease-in-out;
+        font-size: 1rem;
+        /* note that we're transitioning max-height, not height! */
+        height: auto;
+        max-height: 0px;
+        /* // still have to hard-code a value! */
       }
 
       .priceCard ul li {
@@ -176,21 +187,7 @@
       }
 
       .footer img {
-        width: 5rem;
-      }
-
-      .detailArrow {
-        transition: all 0.2s ease-out;
-      }
-
-      .infoSection {
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        font-size: 1rem;
-        /* note that we're transitioning max-height, not height! */
-        height: auto;
-        max-height: 0px;
-        /* // still have to hard-code a value! */
+        width: 3rem;
       }
 
       .show {
