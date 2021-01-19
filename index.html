@@ -79,19 +79,16 @@
       }
 
       .mainHeader {
-        align-items: center;
-        display: grid;
-        padding-bottom: 10rem;
-      }
-
-      .mainHeader div {
-        align-items: center;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 10rem;
         color: #1e3799;
       }
 
       .leftHeader {
+        align-self: center;
       }
 
       .headerLogo {
@@ -105,11 +102,15 @@
       .storeBtns {
         width: 100%;
         display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
       }
 
       .storeBtns img {
         height: 2rem;
         display: flex;
+        width: 25%;
       }
 
       .washes {
@@ -119,14 +120,26 @@
 
       .priceCard {
         text-align: center;
+        align-self: center;
+        width: 80%;
         border: 2px;
         padding: 15px 0;
-        border: 2px solid rgba(1, 1, 1, 0.9);
-        margin: 3px 0;
+        box-shadow: -7px 11px 13px -9px rgba(0, 0, 0, 0.75);
+        margin: 1.5rem 0;
+        color: #1e3799;
+        border-radius: 5px;
+      }
+
+      .bestValue {
+        padding: 20px;
       }
 
       .detailArrow {
         height: 1rem;
+      }
+
+      .up {
+        transform: rotate(180deg);
       }
 
       .priceCard ul li {
@@ -141,6 +154,7 @@
       #map {
         height: 45vh;
         width: 100%;
+        margin-top: 10rem;
       }
 
       .footer {
@@ -150,6 +164,16 @@
         background-color: #1e3799;
         color: #fefefe;
         align-items: center;
+      }
+
+      .hidden {
+        /* 
+      
+      needs to be collapsed, but when clicked it should 
+      expand from the top down and *grow
+      
+       */
+        display: none;
       }
     </style>
 
@@ -173,75 +197,87 @@
     <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
       <!-- Car wash svg -->
-      <div class="leftHeader">
-        <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
-        <h3>Get unlimited washes with our app!</h3>
-      </div>
+      <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
+      <h3>Get unlimited washes with our app!</h3>
 
       <div class="storeBtns">
         <img src="./googlePlay.png" alt="google play store" />
         <img src="./appStore.png" alt="apple app store" />
       </div>
 
-      <!-- Intro and download buttons -->
-      <div class="rightHeader">
-        <img class="carWashImg" alt="wash" src="./foothill.png" />
-      </div>
+      <img class="carWashImg" alt="wash" src="./foothill.png" />
     </div>
 
     <div class="washes">
       <div class="priceCard">
         <h2>Little Baldy</h2>
-        <p>see deatails </p>
+        <!-- Have this hidden when expanded -->
+        <p>see details</p>
         <img
-          class="detailArrow"
+          class="detailArrow down baldyArrow"
           src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
         />
-        <p class="price">$10</p>
-        <ul>
-          <li>Under Carriage & Rocker Blast</li>
-          <li>PreSoak</li>
-          <li>Presoak 2</li>
-          <li>High Pressure Wash</li>
-          <li>Spot Free Rinse</li>
-          <li>Super Dry</li>
-        </ul>
+        <div class="hidden">
+          <p class="price">$10</p>
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="priceCard naomi activeCard">
+      <div class="priceCard naomi bestValue">
         <h2>Naomi Peak</h2>
-        <p class="price bestValue">$14</p>
-        <ul>
-          <li>Under Carriage & Rocker Blast</li>
-          <li>PreSoak</li>
-          <li>Bug Pass</li>
-          <li>Presoak 2</li>
-          <li>High Pressure Wash</li>
-          <li>Triple Foam Polish</li>
-          <li>High Pressure Rinse</li>
-          <li>Lava Glow Wax</li>
-          <li>Rinse</li>
-          <li>Super Sealant</li>
-          <li>Spot Free Rinse</li>
-          <li>Super Dry</li>
-        </ul>
+        <p>see details</p>
+        <img
+          class="detailArrow down naomiArrow"
+          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
+        />
+        <div class="hidden">
+          <p class="price bestValue">$14</p>
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Bug Pass</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Triple Foam Polish</li>
+            <li>High Pressure Rinse</li>
+            <li>Lava Glow Wax</li>
+            <li>Rinse</li>
+            <li>Super Sealant</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
       </div>
 
       <div class="priceCard">
         <h2>Logan Peak</h2>
-        <p class="price">$12</p>
-        <ul>
-          <li>Under Carriage & Rocker Blast</li>
-          <li>PreSoak</li>
-          <li>Bug Pass</li>
-          <li>Presoak 2</li>
-          <li>High Pressure Wash</li>
-          <li>Rinse</li>
-          <li>Triple Foam Polish</li>
-          <li>Clear Coat Protectant</li>
-          <li>Spot Free Rinse</li>
-          <li>Super Dry</li>
-        </ul>
+        <p>see details</p>
+        <img
+          class="detailArrow down loganArrow"
+          src="https://www.flaticon.com/svg/vstatic/svg/25/25629.svg?token=exp=1611021544~hmac=f8663b58d25cb832032f14c5262aa9b7"
+        />
+        <div class="hidden">
+          <p class="price">$12</p>
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Bug Pass</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
+            <li>Rinse</li>
+            <li>Triple Foam Polish</li>
+            <li>Clear Coat Protectant</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -266,8 +302,8 @@
         <p>122 west 900 south utah</p>
       </div>
 
-      <img height="100%" src="./googlePlay.png" alt="google play store" />
-      <img height="100%" src="./appStore.png" alt="app store" />
+      <img src="./googlePlay.png" alt="google play store" />
+      <img src="./appStore.png" alt="app store" />
     </div>
   </body>
 
@@ -275,6 +311,36 @@
     const nav = document.querySelector("nav");
     const logo = document.querySelector("#navLogo");
     const navItems = document.querySelector(".navItems");
+
+    // Arrows for the prices (They should spin)
+    const naomiArrow = document.querySelector(".naomiArrow");
+    const loganArrow = document.querySelector(".loganArrow");
+    const baldyArrow = document.querySelector(".baldyArrow");
+
+    // GET THIS WORKING
+    // const flipArrow = (name) => {
+    //   name.classList.contains("down")
+    //     ? name.classList.replace("down", "up")
+    //     : name.classList.replace("up", "down");
+    // };
+
+    naomiArrow.addEventListener("click", (e) => {
+      naomiArrow.classList.contains("down")
+        ? naomiArrow.classList.replace("down", "up")
+        : naomiArrow.classList.replace("up", "down");
+    });
+
+    loganArrow.addEventListener("click", () => {
+      loganArrow.classList.contains("down")
+        ? loganArrow.classList.replace("down", "up")
+        : loganArrow.classList.replace("up", "down");
+    });
+
+    baldyArrow.addEventListener("click", () => {
+      baldyArrow.classList.contains("down")
+        ? baldyArrow.classList.replace("down", "up")
+        : baldyArrow.classList.replace("up", "down");
+    });
 
     // Checks where the scroll position is and changes styles
     // makes the nav go big and small based on scroll
@@ -376,5 +442,7 @@
         map: map,
       });
     }
+
+    // This should
   </script>
 </html>
