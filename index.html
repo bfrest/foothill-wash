@@ -139,6 +139,14 @@
         border-radius: 5px;
       }
 
+      .priceCard p {
+        transition: all 0.4s ease-in-out;
+      }
+
+      .priceCard ul li {
+        padding: 5px;
+      }
+
       .bestValue {
         padding: 20px;
       }
@@ -160,10 +168,6 @@
         height: auto;
         max-height: 0px;
         /* // still have to hard-code a value! */
-      }
-
-      .priceCard ul li {
-        padding: 5px;
       }
 
       .naomi {
@@ -231,10 +235,9 @@
       <div class="priceCard">
         <h2>Little Baldy</h2>
         <!-- Have this hidden when expanded -->
-        <p>see details</p>
+        <p class="baldyDeets">see details</p>
         <img class="detailArrow down baldyArrow" src="./blue-arrow.svg" />
-        <div class="baldyInfo infoSection hidden">
-          <p class="price">$10</p>
+        <div class="baldyInfo infoSection">
           <ul>
             <li>Under Carriage & Rocker Blast</li>
             <li>PreSoak</li>
@@ -248,10 +251,9 @@
 
       <div class="priceCard naomi bestValue">
         <h2>Naomi Peak</h2>
-        <p>see details</p>
+        <p class="naomiDeets">see details</p>
         <img class="detailArrow down naomiArrow" src="./arrow.svg" />
-        <div class="naomiInfo infoSection hidden">
-          <p class="price bestValue">$14</p>
+        <div class="naomiInfo infoSection">
           <ul>
             <li>Under Carriage & Rocker Blast</li>
             <li>PreSoak</li>
@@ -271,10 +273,9 @@
 
       <div class="priceCard">
         <h2>Logan Peak</h2>
-        <p>see details</p>
+        <p class="loganDeets">see details</p>
         <img class="detailArrow down loganArrow" src="./blue-arrow.svg" />
-        <div class="loganInfo infoSection hidden">
-          <p class="price">$12</p>
+        <div class="loganInfo infoSection">
           <ul>
             <li>Under Carriage & Rocker Blast</li>
             <li>PreSoak</li>
@@ -331,6 +332,9 @@
     const naomiInfo = document.querySelector(".naomiInfo");
     const loganInfo = document.querySelector(".loganInfo");
     const baldyInfo = document.querySelector(".baldyInfo");
+    const naomiDeets = document.querySelector(".naomiDeets");
+    const loganDeets = document.querySelector(".loganDeets");
+    const baldyDeets = document.querySelector(".baldyDeets");
 
     // GET THIS WORKING
     // const flipArrow = (name) => {
@@ -342,30 +346,33 @@
     naomiArrow.addEventListener("click", () => {
       if (naomiArrow.classList.contains("down")) {
         naomiArrow.classList.replace("down", "up");
-        naomiInfo.classList.replace("hidden", "show");
+        naomiInfo.classList.add("show");
+        naomiDeets.classList.add("hidden");
+        naomiDeets.innerText = "$14";
       } else {
         naomiArrow.classList.replace("up", "down");
-        naomiInfo.classList.replace("show", "hidden");
+        naomiInfo.classList.remove("show");
+        naomiDeets.innerText = "see details";
       }
     });
 
     loganArrow.addEventListener("click", () => {
       if (loganArrow.classList.contains("down")) {
         loganArrow.classList.replace("down", "up");
-        loganInfo.classList.replace("hidden", "show");
+        loganInfo.classList.add("show");
       } else {
         loganArrow.classList.replace("up", "down");
-        loganInfo.classList.replace("show", "hidden");
+        loganInfo.classList.remove("show");
       }
     });
 
     baldyArrow.addEventListener("click", () => {
       if (baldyArrow.classList.contains("down")) {
         baldyArrow.classList.replace("down", "up");
-        baldyInfo.classList.replace("hidden", "show");
+        baldyInfo.classList.add("show");
       } else {
         baldyArrow.classList.replace("up", "down");
-        baldyInfo.classList.replace("show", "hidden");
+        baldyInfo.classList.remove("show");
       }
     });
 
