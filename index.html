@@ -153,7 +153,7 @@
 
       .detailArrow {
         height: 1rem;
-        transition: all 0.25s ease-in;
+        transition: all 0.3s ease-in;
       }
 
       .up {
@@ -181,7 +181,7 @@
         margin-top: 10rem;
       }
 
-      .footer {
+      /* .footer {
         width: 100vw;
         display: flex;
         justify-content: space-evenly;
@@ -192,10 +192,89 @@
 
       .footer img {
         width: 3rem;
-      }
+      } */
 
       .show {
         max-height: 500px;
+      }
+
+      .footer {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #1e3799;
+        color: #fefefe;
+      }
+
+      .footer h3 {
+        font-size: 20px;
+      }
+
+      .footer p {
+        font-size: 16px;
+      }
+
+      .footerBox {
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 15px 0;
+        border-bottom: 3px solid #fefefe;
+      }
+
+      .footerBox form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-bottom: 1rem;
+      }
+
+      .formInput {
+        color: #fefefe;
+        font-weight: 500;
+        font-size: 1.2rem;
+        border-radius: 0;
+        line-height: 22px;
+        background-color: #1e3799;
+        border-top-style: none;
+        border-right-style: none;
+        border-left-style: none;
+        border-bottom: 2px solid #fefefe;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        width: 20rem;
+      }
+
+      ::placeholder {
+        color: #fefefe;
+      }
+
+      textarea {
+        height: 3rem;
+        line-height: 150%;
+        resize: vertical;
+      }
+
+      .submit {
+        background: #fefefe;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        color: #1e3799;
+        font-size: 1.2rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: 700;
+        width: 90%;
+      }
+
+      .footerImg img {
+        height: 3rem;
       }
     </style>
 
@@ -223,8 +302,8 @@
       <h3>Get unlimited washes with our app!</h3>
 
       <div class="storeBtns">
-        <img src="./googlePlay.png" alt="google play store" />
         <img src="./appStore.png" alt="apple app store" />
+        <img src="./googlePlay.png" alt="google play store" />
       </div>
 
       <img class="carWashImg" alt="wash" src="./foothill.png" />
@@ -302,7 +381,7 @@
 
     <div id="map"></div>
 
-    <div class="footer">
+    <!-- <div class="footer">
       <div>
         <h3>Contact</h3>
         <p>foothillwash@gmail.com</p>
@@ -315,6 +394,26 @@
 
       <img src="./googlePlay.png" alt="google play store" />
       <img src="./appStore.png" alt="app store" />
+    </div> -->
+    <div class="footer">
+      <div class="footerBox">
+        <form>
+          <input name="name" type="text" class="formInput" placeholder="Name" />
+          <input name="email" type="text" class="formInput" placeholder="Email" />
+          <textarea name="text" class="formInput" placeholder="Questions or Comments?"></textarea>
+          <input class="submit" type="submit" value="SUBMIT" />
+        </form>
+      </div>
+
+      <div class="footerBox">
+        <h3>Address</h3>
+        <p>122 W 900 S Logan, Utah</p>
+      </div>
+
+      <div class="footerBox footerImg">
+        <img src="./appStore.png" alt="apple app store" />
+        <img src="./googlePlay.png" alt="google play store" />
+      </div>
     </div>
   </body>
 
