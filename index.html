@@ -486,7 +486,6 @@
       if (naomiArrow.classList.contains("down")) {
         naomiArrow.classList.replace("down", "up");
         naomiInfo.classList.add("show");
-        naomiDeets.classList.add("hidden");
         naomiDeets.innerText = "$14";
       } else {
         naomiArrow.classList.replace("up", "down");
@@ -499,9 +498,11 @@
       if (loganArrow.classList.contains("down")) {
         loganArrow.classList.replace("down", "up");
         loganInfo.classList.add("show");
+        loganDeets.innerText = "$12";
       } else {
         loganArrow.classList.replace("up", "down");
         loganInfo.classList.remove("show");
+        loganDeets.innerText = "see details";
       }
     });
 
@@ -509,9 +510,11 @@
       if (baldyArrow.classList.contains("down")) {
         baldyArrow.classList.replace("down", "up");
         baldyInfo.classList.add("show");
+        baldyDeets.innerText = "$10";
       } else {
         baldyArrow.classList.replace("up", "down");
         baldyInfo.classList.remove("show");
+        baldyDeets.innerText = "see details";
       }
     });
 
