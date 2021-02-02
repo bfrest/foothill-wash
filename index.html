@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="car wash logan utah cache valley carwash touchless carwash new car wash ner carwash"
+      content="car wash logan utah cache valley carwash touchless carwash new car wash new carwash"
     />
     <meta name="keywords" content="carwash, car, wash, foothill, cars, touchless" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
 
     <style>
       /*******************/
-      /* Desktop Styles */
+      /*  Mobile First  */
       /*****************/
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
@@ -96,6 +96,26 @@
         color: #1e3799;
       }
 
+      .headerContent {
+        align-self: center;
+        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .vidWrap {
+        display: none;
+        /* object-fit: fill; */
+      }
+
+      .vid {
+        height: 300px;
+      }
+
       .leftHeader {
         align-self: center;
       }
@@ -106,6 +126,9 @@
 
       .carWashImg {
         height: 11rem;
+        align-items: center;
+
+        /* display: none; */
       }
 
       .storeBtns {
@@ -307,6 +330,89 @@
       .footerImg img {
         height: 3rem;
       }
+
+      .hideHeaderLogo {
+        display: none;
+      }
+
+      /*******************/
+      /* Desktop styles */
+      /*****************/
+
+      @media (min-width: 600px) {
+        body {
+          margin-top: 90px;
+        }
+
+        nav {
+          padding: 50px 10px;
+        }
+
+        #navLogo {
+          height: 8em;
+        }
+
+        .navItems li {
+          font-size: 2em;
+        }
+
+        .carWashImg {
+          display: none;
+        }
+
+        .mainHeader {
+          color: #fefefe;
+          margin-top: 20px;
+        }
+
+        .headerLogo {
+          height: 15rem;
+          padding: 100px 0;
+        }
+
+        .mainHeader h3 {
+          margin-top: -5rem;
+        }
+
+        .headerContent {
+          font-size: 2rem;
+          width: 100vw;
+          z-index: 1;
+          padding: 50px 0;
+        }
+
+        .storeBtns img {
+          height: 3rem;
+        }
+
+        .vidWrap {
+          position: absolute;
+          display: flex;
+          z-index: 1;
+          margin-top: 110px;
+          width: 100vw;
+        }
+
+        /* video {
+          object-fit: cover;
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+        } */
+
+        .vid {
+          width: 100%;
+          object-fit: cover;
+          height: 100vh;
+        }
+
+        /* Silly way to switch between white and blue logo based on mobile or not */
+        .hideHeaderLogo {
+          display: hidden;
+        }
+      }
     </style>
 
     <script
@@ -320,24 +426,38 @@
       <img id="navLogo" src="./all-white.svg" alt="logo" />
 
       <div class="navItems">
-        <li>Home</li>
-        <li>Contact</li>
-        <li class="getApp">Get App</li>
+        <li class="navItem">Home</li>
+        <li class="navItem">Contact</li>
+        <li class="navItem getApp">Get App</li>
       </div>
     </nav>
 
     <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
-      <!-- Car wash svg -->
-      <img class="headerLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
-      <h3>Get unlimited washes with our app!</h3>
-
-      <div class="storeBtns">
-        <img src="./appStore.png" alt="apple app store" />
-        <img src="./googlePlay.png" alt="google play store" />
+      <div class="vidWrap">
+        <video class="vid" autoplay muted>
+          <source src="./triple-foam.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <img class="carWashImg" alt="wash" src="./foothill.png" />
+      <div class="headerContent">
+        <img
+          class="headerLogo whiteLogo hideHeaderLogo"
+          src="./all-white.svg"
+          alt="foothill wash"
+        />
+        <img class="headerLogo blueLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
+        <h3>Get unlimited washes with our app!</h3>
+
+        <div class="storeBtns">
+          <img src="./appStore.png" alt="apple app store" />
+          <img src="./googlePlay.png" alt="google play store" />
+        </div>
+
+        <img class="carWashImg" alt="wash" src="./foothill.png" />
+      </div>
+
+      <!-- Car wash svg -->
     </div>
 
     <div class="services">
@@ -454,7 +574,7 @@
   <script>
     const nav = document.querySelector("nav");
     const logo = document.querySelector("#navLogo");
-    const navItems = document.querySelector(".navItems");
+    const navItems = document.querySelector(".navItem");
 
     // Arrows for the prices (They should spin)
     const naomiArrow = document.querySelector(".naomiArrow");
@@ -468,6 +588,8 @@
     const naomiDeets = document.querySelector(".naomiDeets");
     const loganDeets = document.querySelector(".loganDeets");
     const baldyDeets = document.querySelector(".baldyDeets");
+    const blueLogo = document.querySelector(".blueLogo");
+    const whiteLogo = document.querySelector(".whiteLogo");
 
     // GET THIS WORKING
     // const flipArrow = (name) => {
@@ -512,6 +634,18 @@
       }
     });
 
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    ) {
+      whiteLogo.classList.add("hideHeaderLogo");
+      console.log(whiteLogo.classList);
+      blueLogo.classList.remove("hideHeaderLogo");
+    } else {
+      blueLogo.classList.add("hideHeaderLogo");
+      console.log(whiteLogo.classList);
+      whiteLogo.classList.remove("hideHeaderLogo");
+    }
+
     // Checks where the scroll position is and changes styles
     // makes the nav go big and small based on scroll
     const scrollFunction = () => {
@@ -527,6 +661,9 @@
 
         // For mobile device
 
+        //
+        //
+        //
         //
         //
         //
@@ -552,16 +689,14 @@
           // Logo styles
           navLogo.style.height = "3em";
         }
-        console.log("mobile device");
+        console.log("how are you seeing this?");
       } else {
         //
         //
         //
 
-        // For non mobile device
+        // For desktop style changes
 
-        //
-        //
         //
         //
 
@@ -574,7 +709,7 @@
           navItems.style.fontSize = "1.7em";
 
           // Logo styles
-          navLogo.style.height = "3em";
+          navLogo.style.height = "4em";
         } else {
           // Before scroll (things are UGE)
           nav.style.padding = "50px 10px";
@@ -584,7 +719,7 @@
           navItems.style.fontSize = "2em";
 
           // Logo styles
-          navLogo.style.height = "6em";
+          navLogo.style.height = "8em";
         }
         console.log("not mobile device");
       }
