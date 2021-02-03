@@ -108,12 +108,15 @@
       }
 
       .vidWrap {
-        display: none;
-        /* object-fit: fill; */
+        /* display: none; */
       }
 
-      .vid {
-        height: 300px;
+      .vidWrap {
+        position: absolute;
+        display: flex;
+        z-index: 2;
+        margin-top: 110px;
+        width: 100vw;
       }
 
       .leftHeader {
@@ -127,7 +130,6 @@
       .carWashImg {
         height: 11rem;
         align-items: center;
-
         /* display: none; */
       }
 
@@ -221,7 +223,6 @@
         /* note that we're transitioning max-height, not height! */
         height: auto;
         max-height: 0px;
-        /* // still have to hard-code a value! */
       }
 
       .naomi {
@@ -234,19 +235,6 @@
         width: 100%;
         margin-top: 10rem;
       }
-
-      /* .footer {
-        width: 100vw;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #1e3799;
-        color: #fefefe;
-        align-items: center;
-      }
-
-      .footer img {
-        width: 3rem;
-      } */
 
       .show {
         max-height: 500px;
@@ -363,6 +351,7 @@
         .mainHeader {
           color: #fefefe;
           margin-top: 20px;
+          position: relative;
         }
 
         .headerLogo {
@@ -377,35 +366,24 @@
         .headerContent {
           font-size: 2rem;
           width: 100vw;
-          z-index: 1;
-          padding: 50px 0;
-        }
-
-        .storeBtns img {
-          height: 3rem;
+          padding: 0px 0;
+          top: 50%;
+          background-color: rgba(30, 55, 153, 0.3);
+          z-index: 4;
+          height: 100vh;
+          margin-top: -60px;
         }
 
         .vidWrap {
           position: absolute;
           display: flex;
-          z-index: 1;
+          z-index: 2;
           margin-top: 110px;
           width: 100vw;
         }
 
-        /* video {
-          object-fit: cover;
-          width: 100vw;
-          height: 100vh;
-          position: fixed;
-          top: 0;
-          left: 0;
-        } */
-
-        .vid {
-          width: 100%;
-          object-fit: cover;
-          height: 100vh;
+        .storeBtns img {
+          height: 3rem;
         }
 
         /* Silly way to switch between white and blue logo based on mobile or not */
@@ -434,18 +412,17 @@
 
     <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
-      <!-- <div class="vidWrap">
-        <video class="vid" autoplay muted>
-          <source src="./triple-foam.mp4" type="video/mp4" />
+      <!-- Background video -->
+      <div class="vidWrap">
+        <video class="vid" muted autoplay loop width="100%">
+          <source
+            src="https://res.cloudinary.com/bfrest/video/upload/v1612225540/foothill/triple-foam.mp4"
+          />
         </video>
-      </div> -->
+      </div>
 
       <div class="headerContent">
-        <img
-          class="headerLogo whiteLogo hideHeaderLogo"
-          src="./all-white.svg"
-          alt="foothill wash"
-        />
+        <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" />
         <img class="headerLogo blueLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
 
@@ -634,15 +611,13 @@
       }
     });
 
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    ) {
+    if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
+      // shows blue logo for mobile
       whiteLogo.classList.add("hideHeaderLogo");
-      console.log(whiteLogo.classList);
       blueLogo.classList.remove("hideHeaderLogo");
     } else {
+      // white logo for desktop (overlaying video)
       blueLogo.classList.add("hideHeaderLogo");
-      console.log(whiteLogo.classList);
       whiteLogo.classList.remove("hideHeaderLogo");
     }
 
