@@ -108,15 +108,7 @@
       }
 
       .vidWrap {
-        /* display: none; */
-      }
-
-      .vidWrap {
-        position: absolute;
-        display: flex;
-        z-index: 2;
-        margin-top: 110px;
-        width: 100vw;
+        display: none;
       }
 
       .leftHeader {
@@ -368,10 +360,12 @@
           width: 100vw;
           padding: 0px 0;
           top: 50%;
-          background-color: rgba(30, 55, 153, 0.3);
+          /* Fer video background contrast */
+          /* background-color: rgba(30, 55, 153, 0.3); */
           z-index: 4;
           height: 100vh;
           margin-top: -60px;
+          color: #1e3799;
         }
 
         .vidWrap {
@@ -380,6 +374,7 @@
           z-index: 2;
           margin-top: 110px;
           width: 100vw;
+          object-fit: cover;
         }
 
         .storeBtns img {
@@ -413,22 +408,26 @@
     <!-- Main Header with car was svg on the left -->
     <div class="mainHeader">
       <!-- Background video -->
-      <div class="vidWrap">
+      <!-- <div class="vidWrap">
         <video class="vid" muted autoplay loop width="100%">
           <source
             src="https://res.cloudinary.com/bfrest/video/upload/v1612225540/foothill/triple-foam.mp4"
           />
         </video>
-      </div>
+      </div> -->
 
       <div class="headerContent">
-        <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" />
+        <!-- <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" /> -->
         <img class="headerLogo blueLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
 
         <div class="storeBtns">
-          <img src="./appStore.png" alt="apple app store" />
-          <img src="./googlePlay.png" alt="google play store" />
+          <a href="https://apps.apple.com/us/app/foothill-wash/id1551369512">
+            <img src="./appStore.png" alt="apple app store" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.foothill.carwash">
+            <img src="./googlePlay.png" alt="google play store" />
+          </a>
         </div>
 
         <img class="carWashImg" alt="wash" src="./foothill.png" />
@@ -542,8 +541,13 @@
       </div>
 
       <div class="footerBox footerImg">
-        <img src="./appStore.png" alt="apple app store" />
-        <img src="./googlePlay.png" alt="google play store" />
+        <a href="https://apps.apple.com/us/app/foothill-wash/id1551369512">
+          <img src="./appStore.png" alt="apple app store" />
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.foothill.carwash">
+          <img src="./googlePlay.png" alt="google play store" />
+        </a>
       </div>
     </div>
   </body>
@@ -611,15 +615,15 @@
       }
     });
 
-    if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
-      // shows blue logo for mobile
-      whiteLogo.classList.add("hideHeaderLogo");
-      blueLogo.classList.remove("hideHeaderLogo");
-    } else {
-      // white logo for desktop (overlaying video)
-      blueLogo.classList.add("hideHeaderLogo");
-      whiteLogo.classList.remove("hideHeaderLogo");
-    }
+    // if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
+    //   // shows blue logo for mobile
+    //   whiteLogo.classList.add("hideHeaderLogo");
+    //   blueLogo.classList.remove("hideHeaderLogo");
+    // } else {
+    //   // white logo for desktop (overlaying video)
+    //   blueLogo.classList.add("hideHeaderLogo");
+    //   whiteLogo.classList.remove("hideHeaderLogo");
+    // }
 
     // Checks where the scroll position is and changes styles
     // makes the nav go big and small based on scroll
