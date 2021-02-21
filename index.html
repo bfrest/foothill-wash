@@ -106,6 +106,7 @@
         justify-content: center;
         width: 100%;
         padding: 4rem 0 1rem;
+        scroll-behavior: smooth;
       }
 
       .vidWrap {
@@ -386,6 +387,10 @@
         .hideHeaderLogo {
           display: hidden;
         }
+
+        body {
+          scroll-behavior: smooth;
+        }
       }
     </style>
 
@@ -397,7 +402,9 @@
   <body>
     <!-- Nav & Nav Items -->
     <nav id="nav">
-      <img id="navLogo" src="./all-white.svg" alt="logo" />
+      <a href="#top">
+        <img id="navLogo" src="./all-white.svg" alt="logo" />
+      </a>
 
       <div class="navItems">
         <li class="navItem">Home</li>
@@ -407,7 +414,7 @@
     </nav>
 
     <!-- Main Header with car was svg on the left -->
-    <div class="mainHeader">
+    <div class="mainHeader" id="#top">
       <!-- Background video -->
       <!-- <div class="vidWrap">
         <video class="vid" muted autoplay loop width="100%">
@@ -430,11 +437,7 @@
             <img src="./googlePlay.png" alt="google play store" />
           </a>
         </div>
-
-        <!-- <img class="carWashImg" alt="wash" src="./foothill.png" /> -->
       </div>
-
-      <!-- Car wash svg -->
     </div>
 
     <div class="services">
