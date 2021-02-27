@@ -329,6 +329,10 @@
         display: none;
       }
 
+      .hide {
+        display: none;
+      }
+
       /*******************/
       /* Desktop styles */
       /*****************/
@@ -434,7 +438,8 @@
 
       <div class="headerContent">
         <!-- <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" /> -->
-        <img class="headerLogo blueLogo" src="./all-white.svg" alt="foothill wash" />
+        <img class="headerLogo blueLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
+        <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
 
         <div class="storeBtns">
@@ -627,15 +632,15 @@
       }
     });
 
-    // if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
-    //   // shows blue logo for mobile
-    //   whiteLogo.classList.add("hideHeaderLogo");
-    //   blueLogo.classList.remove("hideHeaderLogo");
-    // } else {
-    //   // white logo for desktop (overlaying video)
-    //   blueLogo.classList.add("hideHeaderLogo");
-    //   whiteLogo.classList.remove("hideHeaderLogo");
-    // }
+    if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
+      // shows blue logo for mobile
+      whiteLogo.classList.add("hideHeaderLogo");
+      blueLogo.classList.remove("hideHeaderLogo");
+    } else {
+      // white logo for desktop (overlaying video)
+      blueLogo.classList.add("hideHeaderLogo");
+      whiteLogo.classList.remove("hideHeaderLogo");
+    }
 
     // Checks where the scroll position is and changes styles
     // makes the nav go big and small based on scroll
