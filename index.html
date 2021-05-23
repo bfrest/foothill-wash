@@ -197,10 +197,6 @@
         padding: 5px;
       }
 
-      .bestValue {
-        padding: 20px;
-      }
-
       .detailArrow {
         height: 1rem;
         transition: all 0.3s ease-in;
@@ -229,18 +225,6 @@
         width: 100%;
         margin-top: 10rem;
       }
-
-      /* .footer {
-        width: 100vw;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #1e3799;
-        color: #fefefe;
-        align-items: center;
-      }
-      .footer img {
-        width: 3rem;
-      } */
 
       .show {
         max-height: 500px;
@@ -342,6 +326,10 @@
           margin-top: 90px;
         }
 
+        .whiteLogo {
+          display: inline;
+        }
+
         nav {
           padding: 50px 10px;
         }
@@ -405,6 +393,23 @@
         .hideHeaderLogo {
           display: hidden;
         }
+
+        .services {
+          transform: scale(1.2);
+        }
+
+        .washes {
+          transform: scale(1.2);
+          margin-top: 150px;
+        }
+
+        .priceCard {
+          font-size: 1.2rem;
+        }
+
+        .infoSection {
+          font-size: 1.2rem;
+        }
       }
 
       @media (max-aspect-ratio: 16/9) {
@@ -447,9 +452,8 @@
       </div>
 
       <div class="headerContent">
-        <!-- <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" /> -->
-        <img class="headerLogo blueLogo" src="./Component 3blue-logo.svg" alt="foothill wash" />
         <img class="headerLogo whiteLogo" src="./all-white.svg" alt="foothill wash" />
+        <img class="headerLogo blueLogo" src="./blueLogo.svg" alt="foothill wash" />
         <h3>Get unlimited washes with our app!</h3>
 
         <div class="storeBtns">
@@ -479,27 +483,10 @@
 
     <div class="washes">
       <h1>Our Washes</h1>
-      <div class="priceCard">
-        <h2>Little Baldy</h2>
-        <!-- Have this hidden when expanded -->
-        <p class="baldyDeets">see details</p>
-        <img class="detailArrow down baldyArrow" src="./blue-arrow.svg" />
-        <div class="baldyInfo infoSection">
-          <ul>
-            <li>Under Carriage & Rocker Blast</li>
-            <li>PreSoak</li>
-            <li>Presoak 2</li>
-            <li>High Pressure Wash</li>
-            <li>Spot Free Rinse</li>
-            <li>Super Dry</li>
-          </ul>
-        </div>
-      </div>
-
       <div class="priceCard naomi bestValue">
         <h3>BEST DEAL</h3>
         <h2>Naomi Peak</h2>
-        <p class="naomiDeets">see details</p>
+        <p class="naomiDeets">Details</p>
         <img class="detailArrow down naomiArrow" src="./arrow.svg" />
         <div class="naomiInfo infoSection">
           <ul>
@@ -521,7 +508,7 @@
 
       <div class="priceCard">
         <h2>Logan Peak</h2>
-        <p class="loganDeets">see details</p>
+        <p class="loganDeets">Details</p>
         <img class="detailArrow down loganArrow" src="./blue-arrow.svg" />
         <div class="loganInfo infoSection">
           <ul>
@@ -533,6 +520,22 @@
             <li>Rinse</li>
             <li>Triple Foam Polish</li>
             <li>Clear Coat Protectant</li>
+            <li>Spot Free Rinse</li>
+            <li>Super Dry</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="priceCard">
+        <h2>Little Baldy</h2>
+        <p class="baldyDeets">Details</p>
+        <img class="detailArrow down baldyArrow" src="./blue-arrow.svg" />
+        <div class="baldyInfo infoSection">
+          <ul>
+            <li>Under Carriage & Rocker Blast</li>
+            <li>PreSoak</li>
+            <li>Presoak 2</li>
+            <li>High Pressure Wash</li>
             <li>Spot Free Rinse</li>
             <li>Super Dry</li>
           </ul>
@@ -644,8 +647,8 @@
 
     if (/Android|webOS|iPhone|iPad|iPod|Opera Mini/i.test(navigator.userAgent)) {
       // shows blue logo for mobile
-      whiteLogo.classList.add("hideHeaderLogo");
       blueLogo.classList.remove("hideHeaderLogo");
+      whiteLogo.classList.add("hideHeaderLogo");
     } else {
       // white logo for desktop (overlaying video)
       blueLogo.classList.add("hideHeaderLogo");
